@@ -6,7 +6,7 @@ Terminator is required for full functionality
 ## hydro.sh
 
 ## terminalshot.py
-TODO: Add option to enable save dialog again, in cotext menu
+TODO: Add option to enable save dialog again, in context menu
 ## terminalsearch.py
 Forked from https://github.com/msudgh/terminator-search
 
