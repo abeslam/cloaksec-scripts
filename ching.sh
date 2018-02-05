@@ -1,0 +1,43 @@
+#!/bin/bash
+if [ $# -ne 1 ]; then
+    echo "[!] Usage: ./ching.sh <image>"
+    exit 1
+fi
+img=$1
+echo "============" |& tee -a "${img}_analysis.txt"
+echo "File Output:" |& tee -a "${img}_analysis.txt"
+echo "============" |& tee -a "${img}_analysis.txt"
+file "${img}"  |& tee -a "${img}_analysis.txt"
+echo "============"  |& tee -a "${img}_analysis.txt"
+echo  |& tee -a "${img}_analysis.txt"
+echo "==============="  |& tee -a "${img}_analysis.txt"
+echo "BinWalk Output:"  |& tee -a "${img}_analysis.txt"
+echo "==============="  |& tee -a "${img}_analysis.txt"
+binwalk -Me "${img}"  |& tee -a "${img}_analysis.txt"
+echo "============"  |& tee -a "${img}_analysis.txt"
+echo  |& tee -a "${img}_analysis.txt"
+echo "==============="  |& tee -a "${img}_analysis.txt"
+echo "Strings Output:"  |& tee -a "${img}_analysis.txt"
+echo "==============="  |& tee -a "${img}_analysis.txt"
+strings "${img}"  |& tee -a "${img}_analysis.txt"
+echo "============"  |& tee -a "${img}_analysis.txt"
+echo  |& tee -a "${img}_analysis.txt"
+echo "==============="  |& tee -a "${img}_analysis.txt"
+echo "ExifTool Output:"  |& tee -a "${img}_analysis.txt"
+echo "==============="  |& tee -a "${img}_analysis.txt"
+exiftool "${img}"  |& tee -a "${img}_analysis.txt"
+echo "============"  |& tee -a "${img}_analysis.txt"
+echo  |& tee -a "${img}_analysis.txt"
+echo "================"  |& tee -a "${img}_analysis.txt"
+echo "Steghide Output:"  |& tee -a "${img}_analysis.txt"
+echo "================"  |& tee -a "${img}_analysis.txt"
+steghide extract -sf "${img}"  |& tee -a "${img}_analysis.txt"
+echo "============"  |& tee -a "${img}_analysis.txt"
+echo 
+echo "================="
+echo "HexEditor Output:"
+echo "================="
+hexeditor "${img}"
+echo "============"
+echo
+echo "[*] Image Analysis Complete"
