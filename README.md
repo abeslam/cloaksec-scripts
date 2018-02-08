@@ -3,6 +3,7 @@ Some scripts/helpers I made throughout the PWK/OSCP
 
 Terminator is required for full functionality
 
+There are probably better ways to do all of this.
 ## pplfinder
 Cewl shouldn't be the end of it. Check for common usernames with pplfinder.
 
