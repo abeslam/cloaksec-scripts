@@ -41,8 +41,6 @@ if [ -s $uniFileName ];then
 	done
 	updPorts=$(cat tmpUDP)
 	nmap -sU -Pn -f -e tap0 --script default,safe,vulscan/vulscan.nse -g 53 -A -data-length 200 -pU:"${updPorts}" -oA nmap_udp_1 -vvv --webxml "${target}"
-	# rm tmpUDP
-	#cat unitest.txt |grep open |cut -d"]" -f1|rev |cut -d" " -f1|rev
 fi
 echo "First 2 scans are finished."
 
