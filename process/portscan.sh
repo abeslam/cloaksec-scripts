@@ -2,7 +2,7 @@
 target=$1
 cd ~/Labs/"${target}"/01-recon
 echo "Starting Nmap TCP Scan on ${1}..."
-nmap -sS -Pn -f -e tap0 --script default,safe,vulscan/vulscan.nse -g 53 -A -data-length 200 -p0- -oA nmap_tcp_1 -vvv --webxml "${target}"
+nmap -sS -Pn -f -e tap0 --script default,safe -g 53 -A -data-length 200 -p0- -oA nmap_tcp_1 -vvv --webxml "${target}"
 echo "Nmap TCP Scan Complete."
 echo "Let's review the HTTP Ports."
 
@@ -40,7 +40,7 @@ if [ -s $uniFileName ];then
 		echo -n "${openUDP}," >> tmpUDP
 	done
 	updPorts=$(cat tmpUDP)
-	nmap -sU -Pn -f -e tap0 --script default,safe,vulscan/vulscan.nse -g 53 -A -data-length 200 -pU:"${updPorts}" -oA nmap_udp_1 -vvv --webxml "${target}"
+	nmap -sU -Pn -f -e tap0 --script default,safe -g 53 -A -data-length 200 -pU:"${updPorts}" -oA nmap_udp_1 -vvv --webxml "${target}"
 fi
 echo "First 2 scans are finished."
 
