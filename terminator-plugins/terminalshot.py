@@ -36,7 +36,7 @@ class TerminalShot(plugin.MenuItem):
         # Grab a pixbuf of the terminal
         orig_pixbuf = widget_pixbuf(terminal)
         filename = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        path = "/root/Dropbox/Screenshots/"
+        path = "~/Screenshots/"
         path+= filename
         path+= ".png"
         orig_pixbuf.savev(path, 'png', [], [])
